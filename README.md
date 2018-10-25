@@ -2,7 +2,7 @@
 
 Android Shared Preferences for React Native
 
-## Installation
+## Install
 
 ```bash
 npm install @connected-home/react-native-android-shared-preferences --save
@@ -10,44 +10,10 @@ npm install @connected-home/react-native-android-shared-preferences --save
 yarn add @connected-home/react-native-android-shared-preferences
 ```
 
-## Project setup and initialization
+## Link
 
-- `android/settings.gradle`
-
-```gradle
-...
-include ':react-native-android-shared-preferences', ':app'
-project(':react-native-android-shared-preferences').projectDir = new File(rootProject.projectDir, '../node_modules/@connected-home/react-native-android-shared-preferences/android')
-```
-
-- In `android/app/build.gradle`
-
-```gradle
-...
-dependencies {
-    /* YOUR DEPENDENCIES HERE */
-    compile "com.facebook.react:react-native:+"
-    compile project(":react-native-android-shared-preferences") // <--- add this
-}
-```
-
-- Register Module (in MainApplication.java)
-
-```java
-import com.hivehome.react.android.sharedpreferences.RNSharedPreferencesReactPackage;
-
-public class MainActivity extends ReactActivity {
-  ...
-
-  protected List<ReactPackage> getPackages() {
-      return Arrays.<ReactPackage>asList(
-          ...
-          new RNSharedPreferencesReactPackage()
-      );
-  }
-
-  ...
-}
+```bash
+react-native link @connected-home/react-native-android-shared-preferences
 ```
 
 ## Usage
