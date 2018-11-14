@@ -7,6 +7,8 @@ import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.WritableArray;
 import com.facebook.react.bridge.WritableNativeArray;
 import com.facebook.react.bridge.Callback;
+
+import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -99,5 +101,16 @@ public class RNSharedPreferencesModule extends ReactContextBaseJavaModule {
 	@ReactMethod
 	public void clear(String prefName) {
 		getPreferenceStore(prefName).clear();
+	}
+
+	@ReactMethod
+	public void deleteFile(String prefName) {
+		String filePath = getPreferenceStorePath(prefName);
+		File prefFile = new File(filePath);
+		prefFile.delete();
+	}
+
+	private String getPreferenceStorePath(String prefName) {
+		return getReactApplicationContext().getFilesDir().getParent() + "/shared_prefs/" + prefName + ".xml";
 	}
 }
