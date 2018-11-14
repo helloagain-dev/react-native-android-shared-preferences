@@ -75,3 +75,9 @@ SharedPreferences.deleteItem("file", "key");
 ```javascript
 SharedPreferences.clear("file");
 ```
+
+### Delete Prefs File
+
+```javascript
+SharedPreferences.deleteFile("file");
+```
