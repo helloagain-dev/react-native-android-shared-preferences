@@ -17,7 +17,12 @@ class RNSharedPreferences {
     }
 
     String getItem(String key) {
-        return sharedPreferences.getString(key, null);
+        try{
+            if(key=="isAppetize") return String.valueOf(sharedPreferences.getBoolean(key, false));
+            return sharedPreferences.getString(key, null);
+        } catch (Exception e){
+            return "";
+        }
     }
 
     List<String> getItems(String[] keys) {
